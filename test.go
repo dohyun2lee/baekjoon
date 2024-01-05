@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	//"sort"
+	"strings"
 )
 
 func main() {
-	var basket = [5]int{0, 1, 2, 3, 4}
-	sort.Sort(sort.Reverse(sort.IntSlice(basket[1:4])))
+	S := "SdsdD"
+	
+	LS := strings.ToLower(S)
 
-	fmt.Println(basket)
+	fmt.Println(LS)
 }
