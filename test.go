@@ -3,13 +3,10 @@ package main
 import (
 	"fmt"
 	//"sort"
-	"strings"
+	//"strings"
+	"reflect"
 )
 
 func main() {
-	S := "SdsdD"
-	
-	LS := strings.ToLower(S)
-
-	fmt.Println(LS)
+	fmt.Println(reflect.TypeOf(167/2))
 }
