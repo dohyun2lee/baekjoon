@@ -37,7 +37,7 @@ func main() {
 				case 11:
 					ans = append(ans, "B")
 				case 12:
-					ans = append(ans, "c")
+					ans = append(ans, "C")
 				case 13:
 					ans = append(ans, "D")
 				case 14:
