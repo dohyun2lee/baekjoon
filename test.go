@@ -2,11 +2,37 @@ package main
 
 import (
 	"fmt"
-	//"sort"
-	//"strings"
-	"reflect"
+	//"reflect"
+	//"strconv"
 )
 
 func main() {
-	fmt.Println(reflect.TypeOf(167/2))
+	var a []string
+	var n int
+
+	fmt.Scanln(&n)
+	
+	for i:=0;i<n;i++ {
+		var s string
+		fmt.Scanln(&s)
+		a = append(a, s)
+	}
+
+	ans := uniqueSlice(a)
+
+	fmt.Println(ans)
+}
+
+func uniqueSlice(s []string) []string {
+    var res = map[string]int{}
+	var ans []string
+
+	for i:=0;i<len(s);i++ {
+		if res[s[i]] == 0 {
+			res[s[i]]++
+			ans = append(ans, s[i])
+		}
+	}
+
+	return ans
 }
