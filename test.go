@@ -1,38 +1,23 @@
 package main
 
 import (
+	//"bufio"
+	//"os"
 	"fmt"
 	//"reflect"
-	//"strconv"
-)
+// 	"strconv"
+// 	"sort"
+ 	"strings"
+ )
 
 func main() {
-	var a []string
-	var n int
+	//var mymap map[int]int
+	//reader := bufio.NewReader(os.Stdin)
+	//writer := bufio.NewWriter(os.Stdout)
+	//defer writer.Flush()
 
-	fmt.Scanln(&n)
-	
-	for i:=0;i<n;i++ {
-		var s string
-		fmt.Scanln(&s)
-		a = append(a, s)
-	}
+	s := "abcde"
+	S := strings.Split(s, "")
 
-	ans := uniqueSlice(a)
-
-	fmt.Println(ans)
-}
-
-func uniqueSlice(s []string) []string {
-    var res = map[string]int{}
-	var ans []string
-
-	for i:=0;i<len(s);i++ {
-		if res[s[i]] == 0 {
-			res[s[i]]++
-			ans = append(ans, s[i])
-		}
-	}
-
-	return ans
+	fmt.Println(S[1:3])
 }
