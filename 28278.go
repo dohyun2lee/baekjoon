@@ -30,7 +30,7 @@ func main() {
 				fmt.Fprintln(writer, "-1")
 			} else {
 				fmt.Fprintln(writer, stack[len(stack)-1])
-				stack = stack[:len(stack)-1]
+				stack = stack[0:len(stack)-1]
 			}
 		case "3" :
 			fmt.Fprintln(writer, len(stack))
