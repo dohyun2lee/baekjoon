@@ -5,11 +5,12 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"strconv"
 )
 
 func main() {
 	var N int
-	var stack []string
+	var stack []int
 	reader := bufio.NewReader(os.Stdin)
 	scanner := bufio.NewScanner(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
@@ -23,26 +24,33 @@ func main() {
 		cmd1 := strings.Split(cmd, " ")
 
 		switch cmd1[0] {
-		case "1" :
-			stack = append(stack, cmd1[1])
-		case "2" :
+		case "push" :
+			x, _ := strconv.Atoi(cmd1[1])
+			stack = append(stack, x)
+		case "pop" :
 			if len(stack) == 0 {
-				fmt.Fprintln(writer, "-1")
+				fmt.Fprintln(writer, -1)
 			} else {
-				fmt.Fprintln(writer, stack[len(stack)-1])
-				stack = stack[:len(stack)-1]
+				fmt.Fprintln(writer, stack[0])
+				stack = stack[1:]
 			}
-		case "3" :
+		case "size" :
 			fmt.Fprintln(writer, len(stack))
-		case "4" :
+		case "empty" :
 			if len(stack) == 0 {
-				fmt.Fprintln(writer, "1")
+				fmt.Fprintln(writer, 1)
 			} else {
-				fmt.Fprintln(writer, "0")
+				fmt.Fprintln(writer, 0)
 			}
-		case "5" :
+		case "front" :
 			if len(stack) == 0 {
-				fmt.Fprintln(writer, "-1")
+				fmt.Fprintln(writer, -1)
+			} else {
+				fmt.Fprintln(writer, stack[0])
+			}
+		case "back" :
+			if len(stack) == 0 {
+				fmt.Fprintln(writer, -1)
 			} else {
 				fmt.Fprintln(writer, stack[len(stack)-1])
 			}

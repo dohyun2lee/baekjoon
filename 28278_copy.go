@@ -22,25 +22,24 @@ func main() {
 		cmd := scanner.Text()
 		cmd1 := strings.Split(cmd, " ")
 
-		switch cmd1[0] {
-		case "1" :
+		if cmd1[0] == "1" {
 			stack = append(stack, cmd1[1])
-		case "2" :
+		} else if cmd1[0] == "2" {
 			if len(stack) == 0 {
 				fmt.Fprintln(writer, "-1")
 			} else {
 				fmt.Fprintln(writer, stack[len(stack)-1])
 				stack = stack[:len(stack)-1]
 			}
-		case "3" :
+		} else if cmd1[0] == "3" {
 			fmt.Fprintln(writer, len(stack))
-		case "4" :
+		} else if cmd1[0] == "4" {
 			if len(stack) == 0 {
 				fmt.Fprintln(writer, "1")
 			} else {
 				fmt.Fprintln(writer, "0")
 			}
-		case "5" :
+		} else {
 			if len(stack) == 0 {
 				fmt.Fprintln(writer, "-1")
 			} else {

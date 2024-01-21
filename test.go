@@ -2,24 +2,27 @@ package main
 
 import (
 	// "bufio"
-	// "os"
+	//"os"
+	//"bufio"
 	"fmt"
 	// "reflect"
 	// 	"strconv"
 	// 	"sort"
- 	// "strings"
- )
+	"strings"
+)
 
 func main() {
-	var a []int
-	var x int
+	//var a []string
+	s := "So when I die (the [first] I will see in (heaven) is a score list)."
+	S := strings.Split(s, "")
 	
-	for i:=0;i<3;i++ {
-		fmt.Scanln(&x)
-		a = append(a, x)
+	fmt.Println(S[2])
+
+	if S[2] == " " {
+		fmt.Println("SDD")
 	}
 
-	fmt.Println(a)
-	a = a[:len(a)-1]
-	fmt.Println(a)
+	// for i:=0;i<len(S);i++ {
+	// 	fmt.Println(S[i])
+	// }
 }
