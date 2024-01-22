@@ -4,32 +4,31 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
-	"strconv"
 )
 
 func main() {
 	var N int
 	var stack []int
 	reader := bufio.NewReader(os.Stdin)
-	scanner := bufio.NewScanner(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
 	defer writer.Flush()
 
 	fmt.Fscanln(reader, &N)
 
 	for i := 0; i < N; i++ {
-		scanner.Scan()
-		cmd := scanner.Text()
-		cmd1 := strings.Split(cmd, " ")
+		var cmd string
+		var x int
+		fmt.Fscanln(reader, &cmd, &x)
 
-		switch cmd1[0] {
+		switch cmd {
 		case "push" :
-			x, _ := strconv.Atoi(cmd1[1])
 			stack = append(stack, x)
 		case "pop" :
 			if len(stack) == 0 {
 				fmt.Fprintln(writer, -1)
+			} else if len(stack) == 1 {
+				fmt.Fprintln(writer, stack[0])
+				stack = []int{}
 			} else {
 				fmt.Fprintln(writer, stack[0])
 				stack = stack[1:]
