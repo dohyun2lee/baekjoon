@@ -21,7 +21,7 @@ func main() {
 	chk := scanner.Text()
 	var arr []string = strings.Split(chk, " ")
 
-	fmt.Println(arr)
-	arr = append(arr[:0], arr[1:]...)
-	fmt.Println(arr)
+	if arr[0] == arr[1] {
+		fmt.Println(1)
+	}
 }
