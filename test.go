@@ -1,27 +1,23 @@
 package main
 
 import (
-	//	"bufio"
-	"os"
-	"bufio"
+	"container/list"
 	"fmt"
-	//"reflect"
-	// 	"strconv"
-	//	"sort"
-	"strings"
 )
 
-func main() {
-	// var X []int
-	// var a int
-	// reader := bufio.NewReader(os.Stdin)
-	scanner := bufio.NewScanner(os.Stdin)
-	
-	scanner.Scan()
-	chk := scanner.Text()
-	var arr []string = strings.Split(chk, " ")
+var cnt int
 
-	if arr[0] == arr[1] {
-		fmt.Println(1)
+func main() {
+	var s string
+	var word map[string]int = make(map[string]int)
+	var 
+
+	for i:=0;i<5;i++ {
+		fmt.Scanln(&s)
+		word[s]++
+	}
+
+	for k := range word {
+		
 	}
 }

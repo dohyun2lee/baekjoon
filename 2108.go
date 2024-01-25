@@ -10,40 +10,46 @@ import (
 
 func main() {
 	var N, sum int
+	max := 1
 	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Fscanln(reader, &N)
 	var num []int = make([]int, N)
-	var mode map[int]int = make(map[int]int, N)
+	var modechk map[int]int = make(map[int]int)
+	var mode []int
 
 	for i:=0;i<N;i++ {
 		fmt.Fscanln(reader, &num[i])
 		sum += num[i]
-		mode[num[i]]++
+		modechk[num[i]]++
 	}
 
 	sort.Ints(num)
 
-	fmt.Println(math.Round((float64(sum)/float64(N))))
+	avg := math.Round((float64(sum)/float64(N)))
+
+	if avg == -0 {
+		fmt.Println(0)
+	} else {
+		fmt.Println(avg)
+	}
 	fmt.Println(num[N/2])
-	if modeChk(mode) == -1 {
-
+	
+	for key, val := range modechk {
+		if val > max {
+			mode = []int{}
+			mode = append(mode, key)
+			max = val
+		} else if val == max {
+			mode = append(mode, key)
+		}
 	}
-	fmt.Println(modeChk(mode))
-	fmt.Println(num[(len(mode)-1)]-num[0])
-}
-
-func modeChk(mymap map[int]int) int {
-	var ans_val, ans_key int
-	var value []int
-	var keys []int
-
-	for key, val := range mymap {
-		sort.Slice(mymap, func(key int, val int) bool {
-			if mymap[i].val == mymap[j].val {
-				return mymap[i].x < mymap[j].x
-			}
-			return mymap[i].y < mymap[j].y
-		})	
+	sort.Ints(mode)
+	if len(mode) > 1 {
+		fmt.Println(mode[1])
+	} else {
+		fmt.Println(mode[0])
 	}
+
+	fmt.Println(num[N-1]-num[0])
 }
