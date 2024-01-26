@@ -4,47 +4,46 @@ import (
 	"bufio"
 	"os"
 	"fmt"
-	//"sort"
+	"sort"
 )
 
 type word struct {
 	spell string
-	count, length int
+	length int
 }
 
 func main() {
 	var N, M int
 	var s string
-	var words map[string]int = make(map[string]int)
+	//var words map[string]int = make(map[string]int)
 	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Fscanln(reader, &N, &M)
+	var Word []word
 
 	for i:=0;i<N;i++ {
 		fmt.Fscanln(reader, &s)
 		if len(s) >= M {
-			words[s]++
+			Word = append(Word, word{s, len(s)})
 		}
 	}
 
-	fmt.Println(words)
+	var final map[word]int = make(map[word]int)
+	fmt.Println(Word)
 
-	var Word []word = make([]word, len(words))
-	
-	for i:=0;i<len(words);i++ { 
-		for key, val := range words {
-			fmt.Println(key, val)
-			Word[i].spell = key
-			Word[i].count = val
-			Word[i].length = len(key)
-		}
+	for i:=0;i<len(Word);i++ {
+		final[Word[i]]++
 	}
 
-	for i:=0;i<len(Word);i++ { 
-		fmt.Println(Word[i].spell, Word[i].count, Word[i].length)
-	}
+	sorted := make([]string, 0, len(final))
 
-	// sort.Slice(words, func(i, j int) bool {
-		
-	// })
+	for k:=range final {
+		sorted = append(sorted, k.spell)
+	}
+	sort.Strings(sorted)
+
+	for _,k:= range final {
+		fmt.Println(k, final[k])
+	}
+	fmt.Println(final)
 }

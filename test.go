@@ -1,23 +1,23 @@
 package main
 
 import (
-	"container/list"
+	// "container/list"
 	"fmt"
+	"bufio"
+	"os"
 )
 
-var cnt int
-
 func main() {
-	var s string
-	var word map[string]int = make(map[string]int)
-	var 
+	var N, x int
+	var num []int
+	reader := bufio.NewReader(os.Stdin)
 
-	for i:=0;i<5;i++ {
-		fmt.Scanln(&s)
-		word[s]++
+	fmt.Fscanln(reader, &N)
+
+	for i:=0;i<N;i++ {
+		fmt.Fscanf(reader, "%d ", &x)
+		num = append(num, x)
 	}
 
-	for k := range word {
-		
-	}
+	fmt.Println(num)
 }
