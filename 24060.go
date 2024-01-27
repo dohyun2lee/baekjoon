@@ -23,9 +23,8 @@ func main() {
 }
 
 func merge_sort(A []int) { 
-	p = 
     if p < r {
-        q = (p + r) / 2   
+        q := (p + r) / 2   
         merge_sort(A, p, q)  
         merge_sort(A, q + 1, r)
         merge(A, p, q, r)
@@ -36,11 +35,12 @@ func merge(A []int, p, q, r int) {
     i := p
 	j := q + 1 
 	t := 1;
+	var tmp int
     for i <= q && j <= r {
         if A[i] <= A[j] {
-			tmp[t+1] = A[i+1]
+			tmp = A[i+1]
 		} else {
-			tmp[t+1] = A[j+1]
+			tmp = A[j+1]
 		}
     }
 	for i <= q {

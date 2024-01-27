@@ -9,41 +9,41 @@ import (
 
 type word struct {
 	spell string
-	length int
+	cnt int
 }
-
 func main() {
 	var N, M int
 	var s string
-	//var words map[string]int = make(map[string]int)
+	var tmp map[string]int = make(map[string]int)
+	var input []word
 	reader := bufio.NewReader(os.Stdin)
+	writer := bufio.NewWriter(os.Stdout)
+	defer writer.Flush()
 
 	fmt.Fscanln(reader, &N, &M)
-	var Word []word
 
 	for i:=0;i<N;i++ {
-		fmt.Fscanln(reader, &s)
+		fmt.Fscan(reader, &s)
 		if len(s) >= M {
-			Word = append(Word, word{s, len(s)})
+			tmp[s]++
 		}
 	}
 
-	var final map[word]int = make(map[word]int)
-	fmt.Println(Word)
-
-	for i:=0;i<len(Word);i++ {
-		final[Word[i]]++
+	for key, val := range tmp {
+		input = append(input, word{key, val})
 	}
 
-	sorted := make([]string, 0, len(final))
+	sort.Slice(input, func(i, j int) bool {
+		if input[i].cnt == input[j].cnt {
+			if len(input[i].spell) == len(input[j].spell) {
+				return input[i].spell < input[j].spell
+			}
+			return len(input[i].spell) > len(input[j].spell)
+		}
+		return input[i].cnt > input[j].cnt
+	})
 
-	for k:=range final {
-		sorted = append(sorted, k.spell)
+	for _, val := range input {
+		fmt.Fprintln(writer, val.spell)
 	}
-	sort.Strings(sorted)
-
-	for _,k:= range final {
-		fmt.Println(k, final[k])
-	}
-	fmt.Println(final)
 }
