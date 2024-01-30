@@ -20,7 +20,7 @@ func main() {
 }
 
 func sequence(writer *bufio.Writer, visited []bool, result []int, index, n, m int) {
-	if index == m { // if result array is full
+	if index == m {
 		for i := 0; i < m; i++ {
 			fmt.Fprintf(writer, "%d ", result[i])
 		}

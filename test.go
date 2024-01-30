@@ -3,13 +3,17 @@ package main
 import "fmt"
 
 func main(){
-	var a []int
-	a[1] = 1
-	a[2] = 2
-	for i:=0;i<5;i++ {
-		if i%2==0 {
-			continue
+	var N, M int
+	var matrix_one [101][101]int
+
+	fmt.Scanln(&N, &M)
+
+	for i:=0;i<N;i++ {
+		for j:=0;j<M;j++ {
+			fmt.Scan(&matrix_one[i][j])
 		}
-		fmt.Println(i)
+		fmt.Println()
 	}
+
+	fmt.Println(ma)
 }
