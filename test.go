@@ -1,19 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main(){
-	var N, M int
-	var matrix_one [101][101]int
+	var N, M float64
 
 	fmt.Scanln(&N, &M)
 
-	for i:=0;i<N;i++ {
-		for j:=0;j<M;j++ {
-			fmt.Scan(&matrix_one[i][j])
-		}
-		fmt.Println()
-	}
-
-	fmt.Println(ma)
+	fmt.Println(math.Sqrt(math.Pow(N - M, 2)))
 }
