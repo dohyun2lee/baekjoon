@@ -1,15 +1,35 @@
 package main
 
 import (
+	"bufio"
+	"os"
 	"fmt"
 )
 
-func main(){
+func main() {
+	var N, Kim, Yim, cnt int
+	reader := bufio.NewReader(os.Stdin)
+	var people []int
 
-	var a = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
-	Kim := 7
-	Yim := 11
+	fmt.Fscanln(reader, &N, &Kim, &Yim)
 
+	for i:=1;i<=N;i++ {
+		people = append(people, i)
+	}
+
+	for {
+		cnt++
+		people, Kim, Yim = nxtRound(people, Kim, Yim)
+		if Kim == Yim {
+			break
+		}
+		people = makeSliceUnique(people)
+	}
+
+	fmt.Println(cnt)
+}
+
+func nxtRound(a []int, Kim, Yim int) ([]int, int, int) {
 	var b []int
 	for i:=0;i<len(a);i++ {
 		if a[i]%2 != 0 {
@@ -18,16 +38,10 @@ func main(){
 			b = append(b, a[i]/2)
 		}
 	}
-
-	fmt.Println(b)
-
 	Kim = b[Kim-1]
 	Yim = b[Yim-1]
 	
-	fmt.Println(Kim, Yim)
-
-	b = makeSliceUnique(b)
-	fmt.Println(b)
+	return b, Kim, Yim
 }
 
 func makeSliceUnique(x []int) []int {

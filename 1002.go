@@ -29,7 +29,7 @@ func main() {
 			fmt.Fprintln(writer, 2)
 		} else if between < math.Abs(r1 - r2) {
 			fmt.Fprintln(writer, 0)
-		} else if between > r2 + r2 {
+		} else if between > (r1 + r2) {
 			fmt.Fprintln(writer, 0)
 		} else if between == 0 {
 			if r1 == r2 {
