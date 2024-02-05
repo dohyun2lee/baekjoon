@@ -9,5 +9,6 @@ func main(){
 
 	fmt.Scanln(&a)
 
+	fmt.Printf("%c", a[0])
 	fmt.Println(len(a))
 }
