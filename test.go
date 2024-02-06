@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main(){
-	var a string
+	var a = []int{1, 2, 3, 5, 4, 8, 7, 6}
 
-	fmt.Scanln(&a)
-
-	fmt.Printf("%c", a[0])
-	fmt.Println(len(a))
+	sort.Ints(a)
+	fmt.Println(a)
 }
