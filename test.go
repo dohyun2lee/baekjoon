@@ -1,13 +1,11 @@
-package main
+package main 
 
 import (
-	"fmt"
-	"sort"
+"fmt"
 )
 
-func main(){
-	var a = []int{1, 2, 3, 5, 4, 8, 7, 6}
+func main() {
+	var a bool
 
-	sort.Ints(a)
 	fmt.Println(a)
 }
