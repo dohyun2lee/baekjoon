@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	//var a string = "abcd"
+	var a string = "abcd"
 	var b string = "5"
 
 	b = b + "0"
@@ -14,4 +14,5 @@ func main() {
 	x,_ := strconv.Atoi(b)
 
 	fmt.Println(x)
+	fmt.Println(a)
 }
