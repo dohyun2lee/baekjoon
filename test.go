@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	var a bool
+	var a string = "abcd"
 
-	fmt.Println(a)
+	fmt.Println(a[2])
 }
