@@ -2,10 +2,16 @@ package main
 
 import (
 "fmt"
+"strconv"
 )
 
 func main() {
-	var a string = "abcd"
+	//var a string = "abcd"
+	var b string = "5"
 
-	fmt.Println(a[2])
+	b = b + "0"
+
+	x,_ := strconv.Atoi(b)
+
+	fmt.Println(x)
 }
