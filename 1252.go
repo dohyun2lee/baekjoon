@@ -20,8 +20,8 @@ func main() {
 
 	sum := A + B
 	Sum := strings.Split(strconv.Itoa(sum), "")
-	
-	for i := len(Sum)-1; i >= 0; i-- {
+
+	for i := len(Sum) - 1; i >= 0; i-- {
 		num, _ := strconv.Atoi(Sum[i])
 		switch num + x {
 		case 0:

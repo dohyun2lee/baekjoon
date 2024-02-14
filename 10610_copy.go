@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	var thr, N int
+	var thr, N, Zero int
 	var zero bool
 	var numbers []string
 	var ans string
