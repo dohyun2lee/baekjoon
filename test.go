@@ -1,18 +1,18 @@
 package main
 
 import (
-	"bufio"
+	// "bufio"
+	// "os"
 	"fmt"
-	"os"
-	"reflect"
 )
 
-
 func main() {
-	var s string
-	reader := bufio.NewReader(os.Stdin)
+	var S = [3]int{1, 2, 3}
+	var a = [3]int{1, 3, 3}
 
-	fmt.Fscanln(reader, &s)
-
-	fmt.Println(reflect.TypeOf(s[0]), s[1])
+	if S == a {
+		fmt.Println(1)
+	} else {
+		fmt.Println(0)
+	}
 }
