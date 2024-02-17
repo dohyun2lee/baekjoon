@@ -7,12 +7,9 @@ import (
 )
 
 func main() {
-	var S = [3]int{1, 2, 3}
-	var a = [3]int{1, 3, 3}
+	var S string = "ABCDE"
 
-	if S == a {
-		fmt.Println(1)
-	} else {
-		fmt.Println(0)
-	}
+
+	
+	fmt.Println(string(S[len(S)-1]))
 }
