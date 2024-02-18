@@ -7,9 +7,12 @@ import (
 )
 
 func main() {
-	var S string = "ABCDE"
+	var S string = "B"
+	var S1 string = "A"
 
-
-	
-	fmt.Println(string(S[len(S)-1]))
+	if S > S1 {	
+		fmt.Println(1)
+	} else {
+		fmt.Println(0)
+	}
 }
