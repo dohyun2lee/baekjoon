@@ -1,18 +1,21 @@
 package main
 
 import (
-	// "bufio"
-	// "os"
+	"bufio"
 	"fmt"
+	"os"
 )
 
 func main() {
-	var S string = "B"
-	var S1 string = "A"
+	var N int
+	reader := bufio.NewReader(os.Stdin)
 
-	if S > S1 {	
-		fmt.Println(1)
-	} else {
-		fmt.Println(0)
+	fmt.Fscanln(reader, &N)
+	var a []int = make([]int, N)
+
+	for i:=0;i<N;i++ {
+		fmt.Fscan(reader, &a[i])
 	}
+	
+	fmt.Println(a)
 }
