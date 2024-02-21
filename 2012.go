@@ -21,7 +21,11 @@ func main() {
 	sort.Ints(rank)
 
 	for i:=1;i<=N;i++ {
-		cnt += (i - rank[i])
+		if i >= rank[i] {
+			cnt += (i - rank[i])
+		} else {
+			cnt += (rank[i] - i)
+		}
 	}
 
 	fmt.Println(cnt)
