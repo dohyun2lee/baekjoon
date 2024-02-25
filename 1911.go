@@ -12,7 +12,7 @@ type water struct {
 }
 
 func main() {
-	var N, L, a, b int
+	var N, L, a, b, cnt, tmp int
 	reader := bufio.NewReader(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
 	defer writer.Flush()
@@ -29,7 +29,22 @@ func main() {
 		return pool[i].start < pool[j].start
 	})
 
-	pool[0].start = 0
+	for i := 0; i < N; i++ {
+		if tmp >= pool[i].end {
+			continue
+		} else {
+			if tmp >= pool[i].start {
+				pool[i].start = tmp
+			}
+			if (pool[i].end-pool[i].start)%L == 0 {
+				cnt += (pool[i].end - pool[i].start) / L
+				tmp = pool[i].end
+			} else {
+				cnt += (pool[i].end-pool[i].start)/L + 1
+				tmp = pool[i].end - ((pool[i].end - pool[i].start) % L) + L
+			}
+		}
+	}
 
-	fmt.Println(pool)
+	fmt.Println(cnt)
 }
