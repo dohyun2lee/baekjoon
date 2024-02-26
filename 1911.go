@@ -29,7 +29,7 @@ func main() {
 		return pool[i].start < pool[j].start
 	})
 
-	for i := 0; i < N; i++ {
+	for i := 0; i < N; i++ {	
 		if tmp >= pool[i].end {
 			continue
 		} else {
