@@ -4,32 +4,36 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"sort"
 )
 
-type water struct {
-	start, end int
-}
-
 func main() {
-	var N, L, a, b int
+	var N int
 	reader := bufio.NewReader(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
 	defer writer.Flush()
 
-	fmt.Fscanln(reader, &N, &L)
-	var pool []water
+	fmt.Fscanln(reader, &N)
+	var pool = []string{"a", "b", "c", "a", "d", "c"}
 
-	for i := 0; i < N; i++ {
-		fmt.Fscanln(reader, &a, &b)
-		pool = append(pool, water{a, b})
-	}
-
-	sort.Slice(pool, func(i, j int) bool {
-		return pool[i].start < pool[j].start
-	})
-
-	pool[0].start = 0
+	deleteDuplicateItem(pool)
 
 	fmt.Println(pool)
+}
+
+func deleteDuplicateItem(arr []string) []string {
+    ret := []string{}
+    m := make(map[string]int)
+    
+    for _, val := range arr {
+    	if _, ok := m[val]; !ok {
+			fmt.Println("val:", val)
+			fmt.Println("m[val]:", m[val])
+            m[val] = 1
+            ret = append(ret, val)
+    	}
+    }
+
+	fmt.Println(ret)
+    
+    return ret
 }
