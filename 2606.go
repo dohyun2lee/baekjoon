@@ -37,13 +37,6 @@ func main() {
 			com[con[i][0]] = true
  		}
 	}
-	for i := 0; i < K; i++ {
-		if com[con[i][0]] {
-			com[con[i][1]] = true
-		} else if com[con[i][1]] {
-			com[con[i][0]] = true
- 		}
-	}
 
 	for _, val := range com {
 		if val {
