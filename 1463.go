@@ -2,32 +2,37 @@ package main
 
 import (
 	"bufio"
-	"os"
 	"fmt"
+	"os"
 )
 
 func main() {
-	var N, cnt int
+	var N int
 	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Fscanln(reader, &N)
+	var DP []int = make([]int, N+1)
+	
+	for i := 2; i <= N; i++ {
+		DP[i] = DP[i-1]
 
-	for {
-		cnt++
-		if N % 3 == 0 {
-			N = N / 3
-		} else if N % 2 == 0 {
-			N = N /2
-		} else {
-			N--
+		if i%2 == 0 {
+			DP[i] = Min(DP[i], DP[i/2])
+		}
+		if i%3 == 0 {
+			DP[i] = Min(DP[i], DP[i/3])
 		}
 
-		fmt.Println(cnt, N)
-		
-		if N == 1 {
-			break
-		}
+		DP[i]++
 	}
 
-	fmt.Println(cnt)
+	fmt.Println(DP[N])
 }
+
+func Min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
