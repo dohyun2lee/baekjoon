@@ -32,7 +32,7 @@ func chk(M int, tree []int) (ans int) {
 		mid = (min + max) / 2
 		var cnt int
 		for i := 0; i < len(tree); i++ {
-			if tree[i] - mid > 0 {
+			if tree[i]-mid > 0 {
 				cnt += tree[i] - mid
 			}
 		}
