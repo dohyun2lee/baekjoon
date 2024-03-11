@@ -15,15 +15,15 @@ func main() {
 
 	if m > n {
 		n /= a
-		if n*2 > m+n {
-			ans = m + n
+		if n*2 > m {
+			ans = m
 		} else {
 			ans = n * 2
 		}
 	} else {
 		m /= a
-		if m*2 > m+n {
-			ans = m + n
+		if m*2 > n {
+			ans = n
 		} else {
 			ans = m * 2
 		}

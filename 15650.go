@@ -6,28 +6,39 @@ import (
 	"os"
 )
 
-func main() {
-	var n, m int
+func main(){
 	reader := bufio.NewReader(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
+
 	defer writer.Flush()
 
-	fmt.Fscanln(reader, &n, &m)
-	var result = make([]int, m+1)
+	var N, M int
+	fmt.Fscan(reader, &N, &M)
 
-	sequence(writer, result, 0, n, m)
-}
-
-func sequence(writer *bufio.Writer, result []int, index, n, m int) {
-	if index == m {
-		for i := 0; i < m; i++ {
-			fmt.Fprintf(writer, "%d ", result[i])
+	arr := make([]int, M+1)
+	for i:=0 ; i<=M ; i++ {
+		arr[i] = i
+	}
+	if M == 1 {
+		for i:=1 ; i<=N ; i++ {
+			fmt.Fprintln(writer, i)
 		}
-		fmt.Fprint(writer, "\n")
 		return
 	}
-	for i := 1; i < n+1; i++ {
-		result[index] = i
-		sequence(writer, result, index+1, n, m)
+	for arr[M] <= N && arr[0] == 0{
+		for i:=1 ; i<=M ; i++ {
+			fmt.Fprintf(writer, "%d ",arr[i])
+		}
+		fmt.Fprintln(writer)
+		arr[M]++
+		
+		for i:=M ; i>0 ; i-- {
+			if arr[i] > N-M+i {
+				arr[i-1] += 1
+				for j:=0 ; i+j<=M ; j++ {
+					arr[i+j] = arr[i+j-1]+1
+				}
+			}
+		}
 	}
 }
