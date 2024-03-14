@@ -18,11 +18,18 @@ func main() {
 	fmt.Fscanln(reader, &T)
 
 	for i := 0; i < T; i++ {
-		scanner.Scan()
-		stack := list.New()
+		var flip int = 1
+		var N, err int
+		var cmd string
 
+		fmt.Fscanln(reader, &cmd)
+		fmt.Fscanln(reader, &N)
+		scanner.Scan()
+
+		stack := list.New()
 		x := scanner.Text()
 		X := strings.Split(x, ",")
+		command := strings.Split(cmd, "")
 
 		if len(X) == 1 {
 			var tmp []string
@@ -60,9 +67,49 @@ func main() {
 			stack.PushBack(strings.Join(last, ""))
 		}
 
-		for e := stack.Front(); e != nil; e = e.Next() {
-			fmt.Fprint(writer, e.Value)
+		for j := 0; j < len(command); j++ {
+			if command[j] == "R" {
+				flip *= -1
+			} else {
+				if stack.Len() == 0 {
+					err = 1
+					break
+				} else {
+					if flip > 0 {
+						stack.Remove(stack.Front())
+					} else {
+						stack.Remove(stack.Back())
+					}
+				}
+			}
 		}
-		
+
+		if err > 0 {
+			fmt.Fprintln(writer, "error")
+		} else {
+			if flip > 0 {
+				fmt.Fprintf(writer, "[")
+				for e := stack.Front(); e != nil; e = e.Next() {
+					if e.Next() == nil {
+						fmt.Fprint(writer, e.Value)
+					} else {
+						fmt.Fprint(writer, e.Value)
+						fmt.Fprint(writer, ",")
+					}
+				}
+				fmt.Fprintln(writer, "]")
+			} else {
+				fmt.Fprintf(writer, "[")
+				for e := stack.Back(); e != nil; e = e.Prev() {
+					if e.Prev() == nil {
+						fmt.Fprint(writer, e.Value)
+					} else {
+						fmt.Fprint(writer, e.Value)
+						fmt.Fprint(writer, ",")
+					}
+				}
+				fmt.Fprintln(writer, "]")
+			}
+		}
 	}
 }
