@@ -3,19 +3,15 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 )
 
 func main() {
-	var N, M int
+	var N int
 	reader := bufio.NewReader(os.Stdin)
-
-	fmt.Fscanln(reader, &M)
+	
 	fmt.Fscanln(reader, &N)
+	var board []int = make([]int, N+1)
 
-	for i := M; i <= N; i++ {
-		fmt.Println(int(math.Sqrt(float64(i))))
-	}
-
+	fmt.Println(board[0])
 }
