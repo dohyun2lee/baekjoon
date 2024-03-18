@@ -4,26 +4,24 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"sort"
 )
 
 func main() {
-	var N, P, New, rank int
-	reader := bufio.NewReader(os.Stdin)
-
-	fmt.Fscanln(reader, &N, &New, &P)
-	var score []int = make([]int, N)
-
-	for i := 0; i < N; i++ {
-		fmt.Fscan(reader, &score[i])
-	}
-
-	rank = 1
-	sort.Ints(score)
-
-	fmt.Println(score, rank)
-
-	// for i := 0; i < N; i++ {
-
-	// }
+	r := bufio.NewReader(os.Stdin)
+	var N, New, P, x, cnt, rank int
+	fmt.Fscan(r, &N, &New, &P)
+  for i := 0; i < N; i++ {
+    fmt.Fscan(r, &x)
+    if x >= New {
+      cnt++
+    }
+    if x > New {
+      rank++
+    }
+  }
+  if cnt >= P {
+    fmt.Print(-1)
+  } else {
+    fmt.Print(rank+1)
+  }
 }
