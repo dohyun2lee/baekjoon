@@ -7,11 +7,10 @@ import (
 )
 
 func main() {
-	var N int
+	var N string
 	reader := bufio.NewReader(os.Stdin)
 	
 	fmt.Fscanln(reader, &N)
-	var board []int = make([]int, N+1)
 
-	fmt.Println(board[0])
+	fmt.Println(N)
 }
