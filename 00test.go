@@ -7,10 +7,16 @@ import (
 )
 
 func main() {
-	var N string
+	var N int
 	reader := bufio.NewReader(os.Stdin)
 	
 	fmt.Fscanln(reader, &N)
 
-	fmt.Println(N)
+	switch N {
+	case 1:
+		fmt.Println("No")
+	case 2:
+	case 3:
+		fmt.Println("hi")
+	}
 }
