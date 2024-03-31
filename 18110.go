@@ -25,8 +25,7 @@ func main() {
 
 	sort.Ints(grade)
 
-	grade = grade[:N-fif]
-	grade = grade[fif:]
+	grade = grade[fif : N-fif]
 
 	for i := 0; i < len(grade); i++ {
 		sum += grade[i]
