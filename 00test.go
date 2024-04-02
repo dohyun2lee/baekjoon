@@ -1,22 +1,13 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+// import (
+// 	"bufio"
+// 	"fmt"
+// 	"os"
+// )
 
 func main() {
-	var N int
-	reader := bufio.NewReader(os.Stdin)
+	var N, a, b int = 1, 0, 1
 	
-	fmt.Fscanln(reader, &N)
-
-	switch N {
-	case 1:
-		fmt.Println("No")
-	case 2:
-	case 3:
-		fmt.Println("hi")
-	}
+	println(N, a, b)
 }
