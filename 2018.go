@@ -14,7 +14,22 @@ func main() {
 
 	fmt.Fscanln(reader, &N)
 
-	for l <= r && r <= N {
+	if N == 1 || N == 2 {
+		fmt.Fprintln(writer, 1)
+	} else {
+		for l <= r && r <= N {
+			if sum < N {
+				r++
+				sum += r
+			} else {
+				if sum == N {
+					ans++
+					l++
+					sum -= l
+				}
+			}
+		}
 
+		fmt.Fprintln(writer, ans+1)
 	}
 }
