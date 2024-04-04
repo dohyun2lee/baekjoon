@@ -2,13 +2,14 @@ package main
 
 import (
 	"bufio"
+	"container/list"
 	"fmt"
 	"os"
 	"strings"
 )
 
 func main() {
-	var T, place int
+	var T int
 	var S string
 	reader := bufio.NewReader(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
@@ -17,29 +18,38 @@ func main() {
 	fmt.Fscanln(reader, &T)
 
 	for i := 0; i < T; i++ {
-		place = 0
-		var ans []string
-		var tmp []string
-		fmt.Fscanln(reader, &S)
+		l := list.New()
 
+		fmt.Fscanln(reader, &S)
 		s := strings.Split(S, "")
 
+		l.PushBack("*")
+		var cursor = l.Back()
+
 		for j := 0; j < len(s); j++ {
-			if s[j] == "<" {
-				if place != 0 {
-					place--
+			switch s[j] {
+			case "<":
+				if cursor.Prev() != nil {
+					l.MoveBefore(cursor, cursor.Prev())
 				}
-			} else if s[j] == ">" {
-				if place != j {
-					place++
+			case ">":
+				if cursor.Next() != nil {
+					l.MoveAfter(cursor, cursor.Next())
 				}
-			} else if s[j] == "-" {
-				tmp = ans[:place]
-				
-			} else {
-				
+			case "-":
+				if cursor.Prev() != nil {
+					l.Remove(cursor.Prev())
+				}
+			default:
+				l.InsertBefore(s[j], cursor)
 			}
-			p++
 		}
+
+		l.Remove(cursor)
+
+		for e := l.Front(); e != nil; e = e.Next() {
+			fmt.Fprint(writer, e.Value)
+		}
+		fmt.Fprintln(writer)
 	}
 }
