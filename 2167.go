@@ -33,7 +33,7 @@ func main() {
 		fmt.Fscanln(reader, &a, &b, &c, &d)
 
 		for j:=a-1;j<c;j++ {
-			for k:=b;k<d;k++ {
+			for k:=b-1;k<d;k++ {
 				ans += board[j][k]
 			}
 		}
