@@ -13,7 +13,7 @@ func main() {
 	defer writer.Flush()
 
 	fmt.Fscanln(reader, &N)
-	//var ans map[int]int = make(map[int]int)
+	var ans map[int]int = make(map[int]int)
 	var board [1001][1001]int
 
 	for i := 1; i <= N; i++ {
@@ -27,8 +27,18 @@ func main() {
 				board[j][k] = i
 			}
 		}
+	}
 
-		fmt.Fprintln(writer, board)
+	for i:=0;i<1001;i++ {
+		for j:=0;j<1001;j++ {
+			if board[i][j] != 0 {
+				ans[board[i][j]]++
+			}
+		}
+	}
+
+	for i:=1;i<=N;i++ {
+		fmt.Fprintln(writer, ans[i])
 	}
 }
 

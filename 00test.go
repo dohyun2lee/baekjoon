@@ -7,7 +7,7 @@ package main
 // )
 
 func main() {
-	var N, a, b int = 1, 0, 1
+	var N int = 1001
 	
-	println(N, a, b)
+	println(N[0])
 }
