@@ -22,6 +22,7 @@ func main() {
 	} else {
 		for i := 4; i <= N; i++ {
 			way[i] = way[i-2] + way[i-1]
+			way[i] %= 10007
 		}
 
 		fmt.Println(way[N] % 10007)
