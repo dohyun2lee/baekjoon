@@ -7,18 +7,29 @@ import (
 )
 
 func main() {
-	var sum, diff, mush int
+	var sum, afterSum, mush int
+	var mushroom []int
 	reader := bufio.NewReader(os.Stdin)
 
 	for i:=0;i<10;i++ {
 		fmt.Fscanln(reader, &mush)
+		mushroom = append(mushroom, mush)
+	}
+
+	for i:=0;i<10;i++ {
+		afterSum = sum + mushroom[i]
 		
-		if sum + mush <= 100 {
-			sum += mush
-			diff = 100 - sum
+		if afterSum <= 100 {
+			sum = afterSum
+			if sum == 100 {
+				break
+			}
 		} else {
-			if sum + mush - 100 <= diff {
-				sum += mush
+			if afterSum - 100 <= 100 - sum {
+				sum = afterSum
+				break
+			} else {
+				break
 			}
 		}
 	}
