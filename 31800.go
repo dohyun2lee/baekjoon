@@ -13,8 +13,9 @@ func main() {
 	var price []int
 	var profit_2 []int
 	reader := bufio.NewReader(os.Stdin)
-	//writer := bufio.NewWriter(os.Stdin)
-
+	writer := bufio.NewWriter(os.Stdout)
+	defer writer.Flush()
+	
 	fmt.Fscanln(reader, &N)
 
 	for i:=0;i<N;i++ {
@@ -52,6 +53,6 @@ func main() {
 
 		ans = profit[i] - chance - price[i]
 
-		fmt.Printf("%d ", ans)
+		fmt.Fprintf(writer, "%d ", ans)
 	}
 }
