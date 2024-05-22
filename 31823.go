@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	var S, name string
+	var name string
 	var N, M, max, cnt int
 	reader := bufio.NewReader(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
@@ -16,12 +16,14 @@ func main() {
 	fmt.Fscanln(reader, &N, &M)
 
 	for i:=0;i<N;i++ {
+		var reSt []string = make([]string, M)
 		max = 0 
 		cnt = 0
-		fmt.Fscanln(reader, &S, &name)
 
 		for j:=0;j<M;j++ {
-			if S[j] != 42 {
+			fmt.Fscan(reader, &reSt[j])
+
+			if string(reSt[j]) == "." {
 				cnt++
 			} else {
 				if cnt > max {
@@ -30,6 +32,8 @@ func main() {
 				cnt = 0
 			}
 		}
+
+		fmt.Fscanln(reader, &name)
 
 		fmt.Fprintln(writer, max, name)
 	}
