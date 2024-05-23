@@ -28,6 +28,8 @@ func main() {
 			num[x] = true
 		}
 
+		fmt.Fscanln(reader, &M)
+
 		for i := 0; i < M; i++ {
 			if i != M-1 {
 				fmt.Fscan(reader, &x)
