@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"os"
 	"fmt"
+	"strconv"
 )
 
 func main() {
@@ -24,13 +25,15 @@ func main() {
 			cnt++
 		}
 	}
+	
+	ans += strconv.Itoa(cnt+4)
+	ans = strconv.Itoa(N+1906) + ans
 
-	ans += string(cnt+4)
-	ans = string(N+1906) + ans
+	res = "smupc_"
 
-	for i:=len(S)-1;i>=0;i-- {
+	for i:=len(ans)-1;i>=0;i-- {
 		res += string(ans[i])
 	}
 
-	fmt.Fprintf(writer, "smupc_%s", res)
+	fmt.Fprintf(writer, "%s", res)
 }
